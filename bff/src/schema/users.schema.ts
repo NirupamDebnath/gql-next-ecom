@@ -18,12 +18,12 @@ export const typeDefs = gql`
     signup(email: String!, firstName: String!, lastName: String!): String!
     verifyEmail(token: String!): String!
     signin(email: String!, password: String!): AuthPayload!
-    hello: String @auth(requires: ADMIN)
+    hello: String @auth(requires: USER)
   }
 
   type Mutation {
     createUser(token: String!, password: String!): String!
-    uploadPayslip(file: Upload!): File! @auth(requires: ADMIN)
+    uploadPayslip(file: Upload!): File! @auth(requires: USER)
   }
 
   type AuthPayload {
